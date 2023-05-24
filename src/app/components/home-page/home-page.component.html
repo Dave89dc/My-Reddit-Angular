@@ -1,0 +1,21 @@
+<p class="header">
+  <mat-toolbar style="height: 80px; position: relative; top: -16px;" color="primary">
+    <span>My Reddit App</span>
+    <span class="example-spacer"></span>
+
+    <mat-form-field style="margin-right: 30px; padding-top: 20px;">
+      <mat-label>Choose an option:</mat-label>
+      <mat-select [(ngModel)]="selectedArgument" (ngModelChange)="loadPosts()">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="art">Art</mat-option>
+        <mat-option value="worldnews">World News</mat-option>
+        <mat-option value="ufo">UFO</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-icon-button class="example-icon" (click)="changeThemes()" aria-label="Example icon-button with share icon">
+      <mat-icon>{{isLight ? "dark_mode" : "light_mode"}}</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<app-reddit-card *ngFor="let post of posts" [post]="post"></app-reddit-card>

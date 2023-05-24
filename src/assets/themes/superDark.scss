@@ -1,0 +1,135 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$primaryBlue: (
+    50 : #e1f2fd,
+    100 : #b3defa,
+    200 : #81c8f7,
+    300 : #4eb2f3,
+    400 : #28a2f1,
+    500 : #0291ee,
+    600 : #0289ec,
+    700 : #017ee9,
+    800 : #0174e7,
+    900 : #0162e2,
+    A100 : #ffffff,
+    A200 : #d6e5ff,
+    A400 : #a3c5ff,
+    A700 : #8ab5ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$secondaryGreen: (
+    50 : #e1fdfa,
+    100 : #b3faf3,
+    200 : #81f7eb,
+    300 : #4ef3e2,
+    400 : #28f1dc,
+    500 : #02eed6,
+    600 : #02ecd1,
+    700 : #01e9cc,
+    800 : #01e7c6,
+    900 : #01e2bc,
+    A100 : #ffffff,
+    A200 : #d6fff7,
+    A400 : #a3ffed,
+    A700 : #8affe8,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$warnRed: (
+    50 : #fdece1,
+    100 : #facfb3,
+    200 : #f7b081,
+    300 : #f3904e,
+    400 : #f17828,
+    500 : #ee6002,
+    600 : #ec5802,
+    700 : #e94e01,
+    800 : #e74401,
+    900 : #e23301,
+    A100 : #ffffff,
+    A200 : #ffddd6,
+    A400 : #ffb2a3,
+    A700 : #ff9d8a,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$primario-light: mat.define-palette($primaryBlue, 900);
+$secondario-light: mat.define-palette($secondaryGreen, 700);
+
+$primario-dark: mat.define-palette($secondaryGreen, 900);
+$secondario-dark: mat.define-palette($primaryBlue, 700);
+
+$allarme: mat.define-palette($warnRed, 700);
+
+$my-theme-light: mat.define-light-theme((
+  color: (
+    primary: $allarme,
+    accent: $secondario-light,
+    warn: $allarme
+  ),
+  density: 0,
+ ));
+
+$my-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $allarme,
+    accent: $primario-light,
+    warn: $allarme
+  ),
+  density: 0,
+ ));
+
+
+@include mat.all-component-themes($my-theme-light);
+
+.dark-mode{
+  @include mat.all-component-themes($my-theme-dark);
+}

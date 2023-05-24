@@ -1,0 +1,16 @@
+<mat-card *ngIf="post" class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar><img src="./reddit.png" alt=""></div>
+    <mat-card-title style="margin: 8px;">{{post.title}}</mat-card-title>
+    <mat-card-subtitle style="margin-bottom: 8px;">{{post.author}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="post.thumbnail !== '' ? post.thumbnail : './reddit-logo.webp'" alt="Photo of a {{post.title}}">
+  <mat-card-content>
+    <p class="selftext">{{post.selftext}}</p>
+    <p style="margin: 15px;">Score: {{post.score}}</p>
+  </mat-card-content>
+  <mat-card-actions style="display: flex; justify-content: space-between;">
+    <button mat-button><a href="{{post.url}}" target="_blank">Reddit</a></button>
+    <button mat-button><a href="{{post.permalink}}" target="_blank">Link</a></button>
+  </mat-card-actions>
+</mat-card>
